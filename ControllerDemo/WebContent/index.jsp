@@ -12,8 +12,7 @@ pageEncoding="UTF-8"%>
 	<title>DOMUS - House Automation</title>
 
 	<!-- Bootstrap -->
-	<link href="resources/bootstrap-3.3.4-dist/css/bootstrap.min.css"
-	rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 	<link href="resources/style.css" rel="stylesheet">
 
@@ -35,8 +34,7 @@ pageEncoding="UTF-8"%>
   		<div class="row page-header">
   			<h1>
   				<span id="title-icon" class="glyphicon glyphicon-home"
-  				aria-hidden="true"></span> DOMUS <small>Here's what's
-  				happening in your house</small>
+  				aria-hidden="true"></span> DOMUS 
   			</h1>
   		</div>
   		<div class="row well" id="lighting">

@@ -9,7 +9,7 @@ import DomusDemo.RemoteDomusInterface;
 
 public class Server {
 	Domus domus;
-	static String host ="localhost"; 
+	static String host = "localhost";
 	static int exportingPort = 1100;
 	static int bindingPort = 1099;
 	static String serviceName = "Domus";
@@ -24,17 +24,22 @@ public class Server {
 
 		System.setProperty("java.rmi.server.hostname", host);
 		try {
-			RemoteDomusInterface remoteObjectStub =
-				 (RemoteDomusInterface) UnicastRemoteObject
+			RemoteDomusInterface remoteObjectStub = (RemoteDomusInterface) UnicastRemoteObject
 					.exportObject(server.domus, exportingPort);
 
 			Registry registry = LocateRegistry.createRegistry(bindingPort);
 
 			registry.rebind(serviceName, remoteObjectStub);
 
-			
 			System.out.println("RMI server started.");
 
+			Object alive = new Object();
+			synchronized (alive) {
+				try {
+					alive.wait();
+				} catch (InterruptedException e) {
+				}
+			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		} catch (Exception e) {

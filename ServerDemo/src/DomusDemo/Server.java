@@ -33,12 +33,7 @@ public class Server {
 			registry.rebind(serviceName, remoteObjectStub);
 
 			
-			Object alive=new Object();
-			synchronized (alive) {
-				try{
-					alive.wait();
-				} catch(InterruptedException e) {}
-			}
+			System.out.println("RMI server started.");
 
 		} catch (RemoteException e) {
 			e.printStackTrace();
